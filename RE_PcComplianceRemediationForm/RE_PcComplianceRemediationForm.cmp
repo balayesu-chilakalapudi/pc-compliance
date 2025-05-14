@@ -1,0 +1,14 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:appHostable" access="global" >
+    <aura:handler event="c:RE_ProfileUpdateEvt" action="{!c.doInit}" />
+    <aura:attribute name="profile" type="RE_CommunityProfile" />
+    <aura:attribute name="accountId" type="String" default='' />
+    <aura:attribute name="relatedAccount" type="List" default='' />
+    <aura:attribute name="showEnrollmentForm" type="Boolean" default="false" />
+    <aura:attribute name="showEnrollmentFormLwc" type="Boolean" default="false" />
+   
+    
+    <aura:if isTrue="{!v.showEnrollmentFormLwc}">
+        <c:re_PcComplianceRemediationFormLwc  oncmprefresh="{!c.handleRefresh}" onfilepreview="{!c.handleFilePreview}" recordId="{!v.accountId}" relatedAccount="{!v.relatedAccount}"/>
+    </aura:if>
+    
+</aura:component>
